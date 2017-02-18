@@ -1,9 +1,15 @@
 #char-pic {
-  width: 200px;
+  width: 120px;
+  height: 170px
 }
 
 img {
-  width: 150px;
+  width: 70px;
+  height: 120px;
 }
 
-
+#characters {
+  display: flex;
+  align-content: flex-start;
+  flex-flow: row wrap;
+}

@@ -1,5 +1,6 @@
 import React from 'react';
 import Characters from '../components/Characters.jsx';
+import Eliminator from '../components/Eliminator.jsx';
 
 class GameContainer extends React.Component {
     
@@ -37,6 +38,7 @@ class GameContainer extends React.Component {
       <div>
         <h2>Guess Who</h2>
         <Characters characters={this.state.characters} addToEliminated={this.addToEliminated.bind(this)}/>
+        <Eliminator />
       </div>
     );
   }
