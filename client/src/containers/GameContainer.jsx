@@ -6,7 +6,10 @@ class GameContainer extends React.Component {
   constructor (props) {
     super(props);
     this.state = {
-      characters: []
+      characters: [],
+      eliminated: [],
+      who: null,
+      guessed: null
     }
   }
 
@@ -23,11 +26,17 @@ class GameContainer extends React.Component {
     request.send(null);
   }
 
+  addToEliminated (index) {
+    var updatedArray = [...this.state.eliminated];
+    updatedArray.push(this.state.characters[index]);
+    this.setState({eliminated: updatedArray});
+  }
+
   render () {
     return (
       <div>
-        <h2>Game Container</h2>
-        <Characters characters={this.state.characters}/>
+        <h2>Guess Who</h2>
+        <Characters characters={this.state.characters} addToEliminated={this.addToEliminated.bind(this)}/>
       </div>
     );
   }
