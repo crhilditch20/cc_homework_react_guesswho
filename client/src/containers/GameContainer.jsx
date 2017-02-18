@@ -6,22 +6,22 @@ class GameContainer extends React.Component {
   constructor (props) {
     super(props);
     this.state = {
-      characters: [{name: "test1"}, {name: "test2"}]
+      characters: []
     }
   }
 
-  // componentDidMount () {
-  //   const url = "";
-  //   const request = new XMLHttpRequest();
-  //   request.open('GET', url);
-  //   request.onload = function() {
-  //     if (request.status === 200){
-  //       var data = JSON.parse(request.responseText);
-  //       this.setState({ characters: data });
-  //     }
-  //   }.bind(this);
-  //   request.send(null);
-  // }
+  componentDidMount () {
+    const url = "http://hp-api.herokuapp.com/api/characters";
+    const request = new XMLHttpRequest();
+    request.open('GET', url);
+    request.onload = function() {
+      if (request.status === 200){
+        var data = JSON.parse(request.responseText);
+        this.setState({ characters: data });
+      }
+    }.bind(this);
+    request.send(null);
+  }
 
   render () {
     return (
