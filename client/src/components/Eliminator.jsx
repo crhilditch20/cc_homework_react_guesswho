@@ -10,13 +10,21 @@ class Eliminator extends React.Component {
     }
 
     handleChange (event) {
-      var nextLevelArray = [];
+      var valuesArray = [];
       var userChoice = event.target.value;
       console.log(userChoice);
       this.setState({selected: userChoice});
         for (var character of this.props.characters){
-          nextLevelArray.push(character[userChoice])
+          if (character[userChoice] != ""){
+          valuesArray.push(character[userChoice])
         }
+      }
+        var nextLevelArray = [];
+        valuesArray.forEach(function(item) {
+             if(nextLevelArray.indexOf(item) < 0) {
+                 nextLevelArray.push(item);
+             }
+        });
         console.log(nextLevelArray);
     }
 
