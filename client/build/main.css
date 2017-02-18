@@ -13,3 +13,10 @@ img {
   align-content: flex-start;
   flex-flow: row wrap;
 }
+
+#start {
+  width: 100px;
+  height: 50px;
+  background-color: blue;
+  color: white;
+}

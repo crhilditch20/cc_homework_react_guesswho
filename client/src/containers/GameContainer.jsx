@@ -8,6 +8,7 @@ class GameContainer extends React.Component {
     super(props);
     this.state = {
       characters: [],
+      characteristics: ["species", "gender", "house", "eyeColour", "hairColour", "hogwartsStudent", "hogwartsStaff"],
       eliminated: [],
       who: null,
       guessed: null
@@ -38,7 +39,8 @@ class GameContainer extends React.Component {
       <div>
         <h2>Guess Who</h2>
         <Characters characters={this.state.characters} addToEliminated={this.addToEliminated.bind(this)}/>
-        <Eliminator />
+        <button id="start">Start game</button>
+        <Eliminator characters={this.state.characters} characteristics={this.state.characteristics}/>
       </div>
     );
   }
