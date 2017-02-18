@@ -15,6 +15,7 @@ class Characters extends React.Component {
     console.log(event.target.value);
     this.setState({just_eliminated: index});
     this.props.addToEliminated(index);
+    event.target.innerHTML = "Eliminated!";
   }
 
   render () {
