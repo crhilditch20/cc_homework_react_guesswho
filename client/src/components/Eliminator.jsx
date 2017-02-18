@@ -5,7 +5,8 @@ class Eliminator extends React.Component {
     constructor (props) {
       super(props);
       this.state = {
-        selected: null
+        selected: null,
+        nextLevelArray: []
       }
     }
 
@@ -25,7 +26,7 @@ class Eliminator extends React.Component {
                  nextLevelArray.push(item);
              }
         });
-        console.log(nextLevelArray);
+      this.setState({nextLevelArray: nextLevelArray});
     }
 
     render () {
