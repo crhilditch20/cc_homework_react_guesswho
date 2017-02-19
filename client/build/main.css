@@ -14,9 +14,16 @@ img {
   flex-flow: row wrap;
 }
 
-#start {
+/*#start {
   width: 100px;
   height: 50px;
   background-color: blue;
   color: white;
+}*/
+
+#eliminator {
+  display: flex;
+  padding: 10px;
+  margin: auto;
+
 }

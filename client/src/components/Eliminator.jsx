@@ -5,7 +5,7 @@ class Eliminator extends React.Component {
     constructor (props) {
       super(props);
       this.state = {
-        selected: null,
+        selected: "",
         nextLevelArray: []
       }
     }
@@ -13,7 +13,6 @@ class Eliminator extends React.Component {
     handleChange (event) {
       var valuesArray = [];
       var userChoice = event.target.value;
-      console.log(userChoice);
       this.setState({selected: userChoice});
         for (var character of this.props.characters){
           if (character[userChoice] != ""){
@@ -36,9 +35,11 @@ class Eliminator extends React.Component {
        );
       });
     return (
-      <select id="eliminator" value={this.state.selected} onChange={this.handleChange.bind(this)}>
+      <div id="eliminator"> Pick a characteristic!
+      <select value={this.state.selected} onChange={this.handleChange.bind(this)}>
         {options}
       </select>
+      </div>
      )
     }
 }
