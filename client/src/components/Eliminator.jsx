@@ -32,9 +32,8 @@ class Eliminator extends React.Component {
 
     handleNextChange (event) {
       var guessKey = this.state.selected;
-      console.log(guessKey);
       var guessValue = event.target.value;
-      console.log(guessValue);
+      this.setState({nextSelected: guessValue});
       this.checkGuessedStuff(guessKey, guessValue);
     }
 

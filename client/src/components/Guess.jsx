@@ -5,13 +5,14 @@ class Guess extends React.Component {
   constructor (props) {
     super(props);
     this.state = {
+      guessed: "",
       guessResult: ""
     }
   }
 
   handleChange (event) {
     var userGuess = event.target.value;
-    console.log(userGuess);
+    this.setState({guessed: userGuess});
     if (userGuess === this.props.who.name){
        this.setState({guessResult: "Correct!"});
     } else {
@@ -27,7 +28,7 @@ class Guess extends React.Component {
       });
   return (
     <div id="guess"> Make a guess!
-      <select id="character-guess" onChange={this.handleChange.bind(this)}>
+      <select id="character-guess" value={this.state.guessed} onChange={this.handleChange.bind(this)}>
         {options}
       </select>
       <p>{this.state.guessResult}</p>
