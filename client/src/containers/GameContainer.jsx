@@ -11,7 +11,7 @@ class GameContainer extends React.Component {
       characters: [],
       characteristics: ["species", "gender", "house", "eyeColour", "hairColour", "hogwartsStudent", "hogwartsStaff"],
       eliminated: [],
-      who: "Draco Malfoy",
+      who: {},
       guessed: null
     }
   }
@@ -29,6 +29,11 @@ class GameContainer extends React.Component {
     request.send(null);
   }
 
+  setupWho () {
+    var who = this.state.characters[3];
+    this.setState({who: who});
+  }
+
   addToEliminated (index) {
     var updatedArray = [...this.state.eliminated];
     updatedArray.push(this.state.characters[index]);
@@ -40,7 +45,8 @@ class GameContainer extends React.Component {
       <div>
         <h2>Guess Who</h2>
         <Characters characters={this.state.characters} addToEliminated={this.addToEliminated.bind(this)}/>
-        <Eliminator characters={this.state.characters} characteristics={this.state.characteristics}/>
+        <button id="start" onClick={this.setupWho.bind(this)}>Start game</button>
+        <Eliminator characters={this.state.characters} characteristics={this.state.characteristics} who={this.state.who}/>
         <Guess characters={this.state.characters} who={this.state.who}/>
       </div>
     );

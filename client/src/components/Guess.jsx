@@ -12,7 +12,7 @@ class Guess extends React.Component {
   handleChange (event) {
     var userGuess = event.target.value;
     console.log(userGuess);
-    if (userGuess === this.props.who){
+    if (userGuess === this.props.who.name){
        this.setState({guessResult: "Correct!"});
     } else {
       this.setState({guessResult: "Sorry not correct!" });

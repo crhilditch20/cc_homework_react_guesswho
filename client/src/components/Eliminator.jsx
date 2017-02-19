@@ -7,7 +7,8 @@ class Eliminator extends React.Component {
       this.state = {
         selected: "",
         nextLevelArray: [],
-        nextSelected: ""
+        nextSelected: "",
+        yesOrNo: ""
       }
     }
 
@@ -29,7 +30,10 @@ class Eliminator extends React.Component {
       this.setState({nextLevelArray: nextLevelArray});
     }
 
-    handleNextChange () {}
+    handleNextChange (event) {
+    
+    }
+    
 
     render () {
    var options = this.props.characteristics.map(function(type, index){
@@ -48,6 +52,7 @@ class Eliminator extends React.Component {
         {options}
       </select>
       <select value={this.state.nextSelected} onChange={this.handleNextChange.bind(this)}>{nextLevel}</select>
+      <p>{this.state.yesOrNo}</p>
       </div>
      )
     }
