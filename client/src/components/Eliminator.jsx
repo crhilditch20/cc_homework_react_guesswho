@@ -6,7 +6,8 @@ class Eliminator extends React.Component {
       super(props);
       this.state = {
         selected: "",
-        nextLevelArray: []
+        nextLevelArray: [],
+        nextSelected: ""
       }
     }
 
@@ -16,7 +17,7 @@ class Eliminator extends React.Component {
       this.setState({selected: userChoice});
         for (var character of this.props.characters){
           if (character[userChoice] != ""){
-          valuesArray.push(character[userChoice])
+          valuesArray.push(character[userChoice]);
         }
       }
         var nextLevelArray = [];
@@ -28,17 +29,25 @@ class Eliminator extends React.Component {
       this.setState({nextLevelArray: nextLevelArray});
     }
 
+    handleNextChange () {}
+
     render () {
    var options = this.props.characteristics.map(function(type, index){
      return (
        <option value={type} key={index}>{type}</option>
        );
       });
+   var nextLevel = this.state.nextLevelArray.map(function(type, index){
+      return (
+        <option value={type} key={index}>{type}</option>
+        );
+    });
     return (
       <div id="eliminator"> Pick a characteristic!
       <select value={this.state.selected} onChange={this.handleChange.bind(this)}>
         {options}
       </select>
+      <select value={this.state.nextSelected} onChange={this.handleNextChange.bind(this)}>{nextLevel}</select>
       </div>
      )
     }
