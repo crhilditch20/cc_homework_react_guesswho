@@ -43,11 +43,13 @@ class GameContainer extends React.Component {
   render () {
     return (
       <div>
-        <h2>Guess Who</h2>
+        <h2>Guess Which Witch (or Wizard)</h2>
         <Characters characters={this.state.characters} addToEliminated={this.addToEliminated.bind(this)}/>
+        <div id="functions">
         <button id="start" onClick={this.setupWho.bind(this)}>Start game</button>
         <Eliminator characters={this.state.characters} characteristics={this.state.characteristics} who={this.state.who}/>
         <Guess characters={this.state.characters} who={this.state.who}/>
+      </div>
       </div>
     );
   }

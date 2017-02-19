@@ -25,5 +25,15 @@ img {
   display: flex;
   padding: 10px;
   margin: auto;
+}
 
+#functions {
+  display: flex;
+  align-content: flex-start;
+  flex-flow: row wrap;
+}
+
+#guess {
+  padding: 10px;
+  margin: auto;
 }

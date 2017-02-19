@@ -60,12 +60,12 @@ class Eliminator extends React.Component {
         );
     });
     return (
-      <div id="eliminator"> Pick a characteristic!
+      <div id="eliminator"> <p>Pick a characteristic: </p>
       <select value={this.state.selected} onChange={this.handleChange.bind(this)}>
         {options}
       </select>
       <select value={this.state.nextSelected} onChange={this.handleNextChange.bind(this)}>{nextLevel}</select>
-      <p>{this.state.yesOrNo}</p>
+      <p>Am I right? {this.state.yesOrNo}</p>
       </div>
      )
     }
