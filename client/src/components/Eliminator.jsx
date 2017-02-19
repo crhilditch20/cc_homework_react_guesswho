@@ -31,7 +31,20 @@ class Eliminator extends React.Component {
     }
 
     handleNextChange (event) {
-    
+      var guessKey = this.state.selected;
+      console.log(guessKey);
+      var guessValue = event.target.value;
+      console.log(guessValue);
+      this.checkGuessedStuff(guessKey, guessValue);
+    }
+
+    checkGuessedStuff (guessKey, guessValue) {
+      var who = this.props.who;
+      if (who[guessKey] === guessValue){
+        this.setState({yesOrNo: "Yes!"});
+      } else {
+        this.setState({yesOrNo: "No!"});
+      }
     }
     
 
