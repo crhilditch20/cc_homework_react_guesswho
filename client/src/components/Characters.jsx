@@ -12,7 +12,7 @@ class Characters extends React.Component {
   handleClick (event) {
     var index = event.target.value;
     this.setState({just_eliminated: index});
-    this.props.addToEliminated(index);
+    this.props.updateList(index);
     event.target.innerHTML = "Eliminated!";
   }
 

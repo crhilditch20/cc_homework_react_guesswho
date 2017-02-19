@@ -10,9 +10,8 @@ class GameContainer extends React.Component {
     this.state = {
       characters: [],
       characteristics: ["species", "gender", "house", "eyeColour", "hairColour"],
-      eliminated: [],
-      who: {},
-      guessed: null
+      leftInGame: [],
+      who: {}
     }
   }
 
@@ -35,28 +34,32 @@ class GameContainer extends React.Component {
         return Math.floor(Math.random() * (max - min + 1));
     };
 
-  setupWho () {
+  startGame () {
     var max = this.state.characters.length;
     var random = this.getRandomNumber(max);
     var who = this.state.characters[random];
     this.setState({who: who});
+    var leftInGame = this.state.characters;
+    this.setState({leftInGame: leftInGame})
   }
 
-  addToEliminated (index) {
-    var updatedArray = [...this.state.eliminated];
-    updatedArray.push(this.state.characters[index]);
-    this.setState({eliminated: updatedArray});
+  updateLeftInGame(index) {
+    var toRemove = this.state.characters[index];
+    var updatedList = [...this.state.leftInGame];
+    var removeIndex = updatedList.indexOf(toRemove);
+    updatedList.splice(removeIndex, 1);
+    this.setState({leftInGame: updatedList});
   }
 
   render () {
     return (
       <div>
         <h2>Guess Which Witch (or Wizard)</h2>
-        <Characters characters={this.state.characters} addToEliminated={this.addToEliminated.bind(this)}/>
+        <Characters characters={this.state.characters} updateList={this.updateLeftInGame.bind(this)}/>
         <div id="functions">
-        <button id="start" onClick={this.setupWho.bind(this)}>Start game</button>
+        <button id="start" onClick={this.startGame.bind(this)}>Start game</button>
         <Eliminator characters={this.state.characters} characteristics={this.state.characteristics} who={this.state.who}/>
-        <Guess characters={this.state.characters} who={this.state.who}/>
+        <Guess characters={this.state.leftInGame} who={this.state.who}/>
       </div>
       </div>
     );
