@@ -29,8 +29,16 @@ class GameContainer extends React.Component {
     request.send(null);
   }
 
+  getRandomNumber (max) {
+      var min = 0;
+      max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min + 1));
+    };
+
   setupWho () {
-    var who = this.state.characters[3];
+    var max = this.state.characters.length;
+    var random = this.getRandomNumber(max);
+    var who = this.state.characters[random];
     this.setState({who: who});
   }
 
