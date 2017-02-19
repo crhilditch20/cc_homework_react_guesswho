@@ -9,7 +9,7 @@ class GameContainer extends React.Component {
     super(props);
     this.state = {
       characters: [],
-      characteristics: ["species", "gender", "house", "eyeColour", "hairColour", "hogwartsStudent", "hogwartsStaff"],
+      characteristics: ["species", "gender", "house", "eyeColour", "hairColour"],
       eliminated: [],
       who: {},
       guessed: null
